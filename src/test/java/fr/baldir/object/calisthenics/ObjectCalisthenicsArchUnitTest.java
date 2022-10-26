@@ -1,7 +1,11 @@
 package fr.baldir.object.calisthenics;
+
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.jupiter.api.Test;
+
+import static fr.baldir.object.calisthenics.ObjectCalisthenicsArchUnitRules.rule_03_Wrap_All_Primitives_And_Strings;
+import static fr.baldir.object.calisthenics.ObjectCalisthenicsArchUnitRules.rule_08_No_Classes_With_More_Than_Two_Instance_Variables;
 
 class ObjectCalisthenicsArchUnitTest {
 
@@ -15,12 +19,9 @@ class ObjectCalisthenicsArchUnitTest {
 
     @Test
     void Rule_03_Wrap_All_Primitives_And_Strings() {
-
-        JavaClasses importedClasses = new ClassFileImporter().importPackages("fr.baldir");
-        ObjectCalisthenicsArchUnitRules.rule_03_Wrap_All_Primitives_And_Strings()
-                .check(importedClasses);
+        rule_03_Wrap_All_Primitives_And_Strings()
+                .check(new ClassFileImporter().importPackages("fr.baldir"));
     }
-
 
 
     @Test
@@ -40,7 +41,9 @@ class ObjectCalisthenicsArchUnitTest {
     }
 
     @Test
-    void No_Classes_With_More_Than_Two_Instance_Variables() {
+    void Rule_08_No_Classes_With_More_Than_Two_Instance_Variables() {
+        rule_08_No_Classes_With_More_Than_Two_Instance_Variables()
+                .check(new ClassFileImporter().importPackages("fr.baldir"));
     }
 
     @Test
