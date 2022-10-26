@@ -4,6 +4,7 @@ import fr.baldir.annotations.object.calisthenics.Rule_03_Wrap_All_Primitives_And
 import fr.baldir.kata.failing.Failing_03_Wrap_All_Primitives_And_Strings;
 
 @Rule_03_Wrap_All_Primitives_And_Strings
+@SuppressWarnings("java:S101")
 public class Passing_03_Wrap_All_Primitives_And_Strings {
     Failing_03_Wrap_All_Primitives_And_Strings nonPrimitive;
 }
