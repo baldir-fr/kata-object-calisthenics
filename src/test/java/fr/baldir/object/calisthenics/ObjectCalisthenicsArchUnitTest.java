@@ -1,10 +1,10 @@
 package fr.baldir.object.calisthenics;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.jupiter.api.Test;
 
 import static fr.baldir.object.calisthenics.ObjectCalisthenicsArchUnitRules.rule_03_Wrap_All_Primitives_And_Strings;
+import static fr.baldir.object.calisthenics.ObjectCalisthenicsArchUnitRules.rule_04_First_Class_Collections;
 import static fr.baldir.object.calisthenics.ObjectCalisthenicsArchUnitRules.rule_08_No_Classes_With_More_Than_Two_Instance_Variables;
 
 class ObjectCalisthenicsArchUnitTest {
@@ -26,6 +26,15 @@ class ObjectCalisthenicsArchUnitTest {
 
     @Test
     void First_Class_Collections() {
+        rule_04_First_Class_Collections()
+                .check(new ClassFileImporter().importPackages("fr.baldir.kata.passing"));
+        try{
+            rule_04_First_Class_Collections()
+                    .check(new ClassFileImporter().importPackages("fr.baldir.kata.passing"));
+        }catch (Exception e){
+            TODO
+        }
+
     }
 
     @Test
